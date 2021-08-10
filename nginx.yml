@@ -1,0 +1,24 @@
+---
+- name: check 
+  hosts: hosts
+  become: yes
+  tasks:
+    - name: OS Distribution
+      debug:
+        var: ansible_facts["distribution"]
+    - name: "check apt version"
+      command: apt --version
+      when: ansible_facts["distribution"] == "Ubuntu"
+    - name: "Install Java"
+      apt:
+      - name: openjdk-8-jdk
+        state: latest
+        update_cache: yes
+    - name: "Install NGinx"
+      apt:
+      - name: nginx
+        state: latest
+        update_cache: yes
+        
+        
+      
