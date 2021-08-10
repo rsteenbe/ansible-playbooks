@@ -9,12 +9,12 @@
     - name: "check apt version"
       command: apt --version
       when: ansible_facts["distribution"] == "Ubuntu"
-    - name: "Install Java"
+    - name: Install Java
       apt:
         - name: openjdk-8-jdk
           state: latest
           update_cache: yes
-    - name: "Install NGinx"
+    - name: Install NGinx
       apt:
         - name: nginx
           state: latest
