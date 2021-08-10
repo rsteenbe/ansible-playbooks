@@ -1,5 +1,5 @@
 ---
-- name: check 
+- name: check
   hosts: hosts
   become: yes
   tasks:
@@ -11,14 +11,11 @@
       when: ansible_facts["distribution"] == "Ubuntu"
     - name: "Install Java"
       apt:
-      - name: openjdk-8-jdk
-        state: latest
-        update_cache: yes
+        - name: openjdk-8-jdk
+          state: latest
+          update_cache: yes
     - name: "Install NGinx"
       apt:
-      - name: nginx
-        state: latest
-        update_cache: yes
-        
-        
-      
+        - name: nginx
+          state: latest
+          update_cache: yes
